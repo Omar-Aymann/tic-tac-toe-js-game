@@ -1,16 +1,29 @@
 let cells = document.getElementsByClassName('box');
 let overlayMsg = document.querySelector('.overlay');
 let restartBtn = document.getElementById('restartBtn');
+let chooseOv = document.querySelector('.choose');
+let xBtn = document.getElementById('xPlayer');
+let oBtn = document.getElementById('oPlayer');
 let player1 = 'X';
-let player2 = 'O';
 let msg = document.getElementById('msg');
 let fullCells = false;
 let clicked = [];
+xBtn.addEventListener('click', function() {
+    chooseOv.style.display = 'none';
+    player1 = 'X';
+    play(player1);
+});
+oBtn.addEventListener('click', function() {
+    chooseOv.style.display = 'none';
+    player1 = 'O';
+    play(player1);
+});
 restartBtn.addEventListener('click', function() {
     location.reload();
 })
-play(player1);
+
 function play(player) {
+    console.log(player);
     for(let i = 0; i < cells.length; i++) {
         cells[i].addEventListener('click', function() {
             let cellContent = cells[i].innerText;
